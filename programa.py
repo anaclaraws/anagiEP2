@@ -30,6 +30,7 @@ for nome, tamanho, quantidade in tipos:
                 break
             else:
                 print("Esta posição não está válida!")
+                
 frota_oponente = {
     'porta-aviões': [[[9, 1], [9, 2], [9, 3], [9, 4]]],
     'navio-tanque': [[[6, 0], [6, 1], [6, 2]], [[4, 3], [5, 3], [6, 3]]],
@@ -40,7 +41,6 @@ frota_oponente = {
 
 tabuleiro_oponente = posiciona_frota(frota_oponente)
 
-from funcoes import frota  
 tabuleiro_jogador = posiciona_frota(frota)
 
 jogando = True
