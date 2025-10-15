@@ -14,33 +14,20 @@ from funcoes import *
 #1
 for nome, tamanho, quantidade in tipos:
     for i in range(quantidade):
-        print(f"Insira as informações referentes ao navio {nome} que possui tamanho {tamanho}")
-        
-        linha = int(input("Linha: "))
-        coluna = int(input("Coluna: "))
-
-        if tamanho == 1:
-            orientacao = "vertical"
-        else:
-            orient = int(input("[1] Vertical [2] Horizontal >"))
-            orientacao = "vertical" if orient == 1 else "horizontal"
-        if posicao_valida(frota, linha, coluna, orientacao, tamanho):
-            preenche_frota(frota, nome, linha, coluna, orientacao, tamanho)
-        else:
-            print("Esta posição não está válida!")
+        while True:
             print(f"Insira as informações referentes ao navio {nome} que possui tamanho {tamanho}")
-            
             linha = int(input("Linha: "))
             coluna = int(input("Coluna: "))
+
             if tamanho == 1:
                 orientacao = "vertical"
             else:
-                orient = int(input("[1] Vertical [2] Horizontal >"))
-                orientacao = "vertical" if orient == 1 else "horizontal"
-            
+                op = int(input("[1] Vertical [2] Horizontal >"))
+                orientacao = "vertical" if op == 1 else "horizontal"
+
             if posicao_valida(frota, linha, coluna, orientacao, tamanho):
                 preenche_frota(frota, nome, linha, coluna, orientacao, tamanho)
+                break
             else:
-                print("Posição inválida novamente. O navio será ignorado.")
-
+                print("Esta posição não está válida!")
 print(frota)
